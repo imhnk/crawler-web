@@ -1,4 +1,4 @@
-name: CI
+name: MyCI
 
 # Cancel previous runs that are not completed
 # concurrency:
