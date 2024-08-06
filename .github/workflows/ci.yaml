@@ -4,6 +4,7 @@ name: MyCI
 # concurrency:
 #   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
 #   cancel-in-progress: true
+
 on:
   pull_request:
     branches:
