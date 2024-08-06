@@ -38,8 +38,9 @@ jobs:
           key: ${{ secrets.SSH_PRIV_KEY }}
           port: 22
           script: |
-            cd /home/ubuntu/actions-runner/workdir/crawler-web/crawler-web
-            sh deploy.sh imhnk/crawler-website-lab ${{ steps.meta.outputs.tags }}
+            docker rm -f website &2>/dev/null || true
+            docker images --format '{{.Repository}}:{{.Tag}}' | grep 'imhnk/crawler-website-lab' | xargs -r docker rmi -f
+            docker run --net crawler -d --name website -p 3100:80 $1
 
       # - name: Setup SSH
       #   run: |
