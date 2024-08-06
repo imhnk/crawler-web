@@ -38,7 +38,7 @@ jobs:
           key: ${{ secrets.SSH_PRIV_KEY }}
           port: 22
           script: |
-            cd /home/ubuntu/crawler-demo
+            cd /home/ubuntu/actions-runner/workingdir/crawler-web/crawler-web
             sh deploy.sh 080196/crawler-website ${{ steps.meta.outputs.tags }}
 
       # - name: Setup SSH
